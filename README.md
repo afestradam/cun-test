@@ -8,12 +8,12 @@ CunTestApi es una API desarrollada en ASP.NET Core que permite gestionar usuario
 ## Tabla de Contenidos
 - [Resumen del Proyecto](#resumen-del-proyecto)
 - [Decisiones Arquitectónicas](#decisiones-arquitectónicas)
+- [Estructura de Carpetas](#estructura-de-carpetas)
 - [Configuración de la Base de Datos](#configuración-de-la-base-de-datos)
 - [Endpoints de la API](#endpoints-de-la-api)
 - [Configuración de la Autenticación JWT](#configuración-de-la-autenticación-jwt)
 - [Instrucciones de Despliegue](#instrucciones-de-despliegue)
 - [Ejemplo de Peticiones con Postman](#ejemplo-de-peticiones-con-postman)
-- [Detalles de Implementación de CORS](#detalles-de-implementación-de-cors)
 
 ---
 
@@ -30,6 +30,31 @@ CunTestApi es una API desarrollada en ASP.NET Core que permite gestionar usuario
 - **Estructura Frontend**: Se optó por HTML5 y módulos personalizados para agilizar el desarrollo, aprovechando la experiencia previa y asegurando la cohesión.
 - **Autenticación JWT**: Configurada en el backend para asegurar los endpoints sensibles.
 - **Procedimientos Almacenados**: Utilizados para las operaciones CRUD y autenticación en SQL Server.
+
+---
+
+## Estructura de Carpetas
+
+El proyecto está organizado de la siguiente manera para mantener una separación clara entre el frontend y el backend, con cada componente en su propio directorio. A continuación, se describen las carpetas clave:
+
+- **admin/**: Contiene los archivos del frontend en HTML5 y la estructura modular.
+  - **css/**: Hojas de estilo CSS.
+  - **d-dashboard/**, **d-products/**, **d-users/**, **d-user-profile/**: Módulos específicos del frontend para gestionar productos, usuarios, y perfiles de usuario.
+  - **js/**: Scripts de JavaScript para manejar la lógica del frontend.
+  - **media/**: Archivos multimedia (imágenes, etc.).
+  - **resources/**: Archivos adicionales, como la configuración del archivo `.htaccess`.
+  - **index.html**, **dashboard.html**, **noauth.html**, **user-new.html**, **profile-image.html**: Páginas HTML del frontend que interactúan con la API para gestionar los diferentes aspectos de la aplicación.
+
+- **CunTestApi/**: El proyecto de backend desarrollado con ASP.NET Core.
+  - **Controllers/**: Contiene los controladores que manejan las peticiones HTTP para los usuarios, productos, y autenticación.
+  - **Data/**: Contiene la configuración del contexto de la base de datos (**AppDbContext**).
+  - **Helpers/**: Archivos de utilidad, como los métodos de hash de contraseñas.
+  - **Migrations/**: Archivos relacionados con las migraciones de la base de datos.
+  - **Program.cs**: El punto de entrada de la aplicación donde se configuran los servicios, el middleware, y la autenticación JWT.
+
+- **SQL/**: Contiene el archivo de la base de datos **cun_test_dev.bacpac**, que se puede importar en SQL Server.
+
+- **docs/**: Carpeta para la documentación del proyecto, incluyendo el archivo **Prueba_ProgramacionFullStack.docx** que contiene la especificación de la prueba.
 
 ---
 
@@ -89,33 +114,65 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 ## Instrucciones de Despliegue
 
 ### 1. Base de Datos
-   - Importa el esquema y los procedimientos almacenados desde el archivo SQL en SQL Server para crear las tablas `Users` y `Products`, así como los procedimientos almacenados (`UserLogin`, `GetUsers`, `UpdateUser`, `CreateUser`, `DeleteUser`, `GetProducts`, `UpdateProduct`, `CreateProduct`, `DeleteProduct`).
-   - Asegúrate de que la base de datos esté disponible en el servidor especificado en la configuración de la API.
+   - Importar el esquema y los procedimientos almacenados desde el archivo cun_test_dev.bacpac de SQL Server para crear las tablas `Users` y `Products`, así como los procedimientos almacenados (`UserLogin`, `GetUsers`, `UpdateUser`, `CreateUser`, `DeleteUser`, `GetProducts`, `UpdateProduct`, `CreateProduct`, `DeleteProduct`).
+   -Es necesario asegúrarse de que la base de datos esté disponible en el servidor especificado en la configuración de la API.
 
 ### 2. Backend (API)
-   - **Paso 1**: Clona el repositorio en tu máquina local:
+   - **Paso 1**: Clonar el repositorio en la maquina local:
      ```bash
-     git clone https://github.com/tuusuario/cun-test-api.git
+     git clone https://github.com/afestradam/cun-test.git
      ```
-   - **Paso 2**: Abre el proyecto en **Visual Studio** o tu editor de preferencia que soporte ASP.NET Core.
-   - **Paso 3**: Restaura los paquetes de NuGet en el proyecto.
-   - **Paso 4**: Configura la cadena de conexión en **appsettings.json**. Asegúrate de que la cadena de conexión se ajuste al entorno en el que estás desplegando:
+   - **Paso 2**: Abrir el proyecto en **Visual Studio** o **Visual Studio Code**.
+   - **Paso 3**: Restaurar los paquetes de NuGet en el proyecto.
+   - **Paso 4**: Configurar la cadena de conexión en **appsettings.json**. Es necesario asegúrarse de que la cadena de conexión se ajuste al entorno en el que se está desplegando:
      ```json
      "ConnectionStrings": {
          "DefaultConnection": "Server=YOUR_SERVER;Database=cun_test_dev;Trusted_Connection=True;"
      }
      ```
-     Reemplaza `YOUR_SERVER` con el nombre o IP del servidor donde se aloja SQL Server.
-   - **Paso 5**: Ejecuta la API. Puedes hacerlo desde Visual Studio (con el botón de inicio) o desde la línea de comandos con:
+     Reemplazar `YOUR_SERVER` con el nombre o IP del servidor donde se aloja SQL Server.
+   - **Paso 5**: Ejecutar la API. Esto se puede hacer desde Visual Studio (con el botón de inicio) o desde la línea de comandos con:
      ```bash
      dotnet run
      ```
    - La API debería estar disponible en `http://localhost:5109/` o en el puerto configurado.
 
 ### 3. Frontend (HTML5)
-   - **Paso 1**: Navega a la carpeta donde se encuentra el archivo HTML del frontend.
-   - **Paso 2**: Abre el archivo HTML en tu navegador. Este archivo se conecta directamente con la API en localhost.
-   - **Nota**: Asegúrate de que la API esté corriendo en `localhost:5109` o el puerto adecuado. Si el puerto de la API es diferente, actualiza las rutas de la API en el frontend para reflejar el puerto correcto.
+   - **Paso 1**: Navegar a la carpeta donde se encuentra el archivo HTML del frontend.
+   - **Paso 2**: En la ruta **admin/resources/js** se encuentra el archivo .env.
+     ```json
+const env = {
+    "base": {
+        "dev": "http://localhost:5109/",
+        "test": "",
+        "demo": "",
+        "prod": ""
+    },
+    "path": {
+        "dev": "api/",
+        "test": "",
+        "demo": "",
+        "prod": ""
+    },
+    "profiles": {
+        "dev": "api/",
+        "test": "",
+        "demo": "",
+        "prod": ""
+    },
+    "documents": {
+        "dev": "api/",
+        "test": "",
+        "demo": "",
+        "prod": ""
+    },
+    "key": "de28a8de-33be-11ef-989c-3c91886ad686-202406272CT"
+}
+     ```
+
+   - **Paso 3**: El archivo **.env** contiene la configuración de conexiones, encaso de que el puerto de conexión haya cambiado se debe ajustar la propiedad **base-dev**.
+- **Paso 4**: Una vez hecho este ajuste es preferible ejecutar la aplicación con **Live server** en visual studio code o con algún servidor apache local.
+- **Nota**: Es necesario asegúrarse de que la API esté corriendo en `localhost:5109` o el puerto adecuado.
 
 ## Ejemplo de Peticiones con Postman
 
@@ -132,35 +189,6 @@ A continuación, se muestran ejemplos de cómo realizar las peticiones principal
       "userPassword": "testpassword"
   }
   ```
-  ---
-  ## Ejemplo de Peticiones con Postman
 
-A continuación, se muestran ejemplos de cómo realizar las peticiones principales en **Postman** para autenticar, crear y gestionar usuarios y productos.
-
-### 1. Autenticación de Usuario
-
-- **Método**: `POST`
-- **URL**: `http://localhost:5109/api/auth/login`
-- **Body** (JSON):
-  ```json
-  {
-      "userEmail": "testuser@example.com",
-      "userPassword": "testpassword"
-  }
-  ```
-
----
-## Conclusión
-
-La prueba fue completada exitosamente utilizando **ASP.NET Core** en el backend y **HTML5** con una estructura modular en el frontend, en lugar de Angular, para lograr una implementación rápida y efectiva que aprovecha la experiencia y comodidad del desarrollador con esta estructura.
-
-El backend implementa autenticación segura mediante **JWT**, con una configuración de **CORS** adecuada para permitir el intercambio de recursos entre el frontend y la API alojada en localhost. Se utilizó **SQL Server** para la gestión de datos, empleando procedimientos almacenados para optimizar las consultas y realizar operaciones de **CRUD** tanto en la tabla de usuarios como en la de productos.
-
-Este proyecto destaca por su cohesión y simplicidad, permitiendo una administración completa de usuarios y productos a través de endpoints bien documentados y fáciles de consumir. La combinación de autenticación segura, optimización de base de datos y una estructura modular en el frontend da como resultado una aplicación robusta y eficiente que cumple con todos los requisitos de la prueba.
-
-Esta documentación sirve como referencia completa para el despliegue, configuración y uso de la API y su frontend, facilitando tanto la revisión como el mantenimiento del proyecto.
-
-
-
-
-
+- **Nota**: En la carpeta **Postman-Collections** se encuentra una colección en formato json de todas las peticiones que se pueden realizar a la API, esta colección incluye una configuración por defecto para las variables de entorno **Al solicitar un token, este se enviará automáticamente en las demás peticiones sin tener que escribir el token en cada petición nueva**.
+  
