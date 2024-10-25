@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the saveor.
+-->
+<html>
+
+<head>
+    <title>Usuarios</title>
+    <meta charset="UTF-8">
+    <link href="d-user-profile/css/main.css" rel="stylesheet" type="text/css" />
+
+    <script src="d-user-profile/js/user.js" type="text/javascript"></script>
+    <script src="d-user-profile/js/user-data.js" type="text/javascript"></script>
+</head>
+
+<body class=" container-fluid">
+    <div class="pages-container container">
+
+        <div class="profile-container">
+            <div id="user-info" class="profile-card">
+                <div class="edit">
+                    <a id="user-info-edit" href="javascript: void()">
+                        <i class="bi bi-pencil-square"></i>
+                    </a>
+                </div>
+                <div class="image">
+                    <div class="text-center mb-3">
+                        <img id="user-info-picture" src="media/images/profile-default.png" class="img-thumbnail"
+                            height="110px" width="110px" style="border-radius: 100%;">
+                    </div>
+                </div>
+                <div class="info">
+                    <h1 id="user-info-name"></h1>
+                    <h3><span id="user-info-email"></span></h3>
+                </div>
+            </div>
+            <div id="user-edit" class="profile-form hide-element">
+                <div class="close">
+                    <a href="javascript: ToggleInfoCard()">
+                        <i class="bi bi-x-lg"></i>
+                    </a>
+                </div>
+                <div class="form-container">
+                    <form>
+                        <div class="row g-2">
+                            <div class="text-center mb-3">
+                                <img id="users-edit-preview" src="media/images/profile-default.png"
+                                    class="img-thumbnail" height="150px" width="150px" style="border-radius: 100%;">
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3 hide-element">
+                            <input type="text" class="form-control textbox-line" id="users-edit-id"
+                                name="users-edit-user" data-field="Id de usuario" onchange="removeInvalid(this)"
+                                placeholder="Id de usuario">
+                            <label class="form-small-label" for="users-edit-id">Id de usuario</label>
+                            <small id="users-edit-id-text" class="form-text text-muted"></small>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control textbox-line" id="users-edit-name"
+                                name="users-edit-user" data-field="Nombre" onchange="removeInvalid(this)"
+                                placeholder="Nombre">
+                            <label class="form-small-label" for="users-edit-name">Nombre</label>
+                            <small id="users-edit-name-text" class="form-text text-muted"></small>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control textbox-line" id="users-edit-email"
+                                name="users-edit-user" data-field="E-Mail" onchange="removeInvalid(this)"
+                                placeholder="E-Mail" disabled>
+                            <label class="form-small-label" for="users-edit-email">E-Mail</label>
+                            <small id="users-edit-email-text" class="form-text text-muted"></small>
+                        </div>
+                        <div class="form-floating col-md-12 mb-3 hide-element">
+                            <input type="password" class="form-control textbox-line" id="users-edit-password"
+                                name="users-edit-user" data-field="confirmar contraseña" onchange="removeInvalid(this)">
+                            <label class="form-small-label" for="users-edit-password">Confirmar contraseña</label>
+                            <small id="users-edit-password-text" class="form-text text-muted"></small>
+                        </div>
+                    </form>
+                </div>
+                <div class="form-footer">
+                    <a href="javascript: validateUpdate();" type="button" class="ss-btn btn-basic"
+                        id="users-edit-send">Guardar</a>
+                    <a href="#" type="button" class="ss-btn btn-basic disabled hide-element"
+                        id="users-edit-sending"><span class="spinner-border spinner-border-sm" role="status"
+                            aria-hidden="true"></span>
+                        Guardando</a>
+                </div>
+            </div>
+            <div id="user-password" class="profile-form">
+                <div class="p-2">
+                    <h4>Cambiar contraseña</h4>
+                </div>
+                <div class="form-container">
+                    <form>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control textbox-line" id="users-edit-password1"
+                                name="users-password-edit" data-field="nueva contraseña" onchange="removeInvalid(this)"
+                                placeholder="Nueva contraseña">
+                            <label class="form-small-label" for="users-edit-password1">Nueva contraseña</label>
+                            <small id="users-edit-password1-text" class="form-text text-muted"></small>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control textbox-line" id="users-edit-password2"
+                                name="users-password-edit" data-field="repita contraseña" onchange="removeInvalid(this)"
+                                placeholder="Repita contraseña">
+                            <label class="form-small-label" for="users-edit-password2">Repita contraseña</label>
+                            <small id="users-edit-password2-text" class="form-text text-muted"></small>
+                        </div>
+                    </form>
+                </div>
+                <div class="form-footer">
+                    <a href="javascript: validatePassword();" type="button" class="ss-btn btn-basic"
+                        id="users-password-send">Actualizar</a>
+                    <a href="#" type="button" class="ss-btn btn-basic disabled hide-element"
+                        id="users-password-sending"><span class="spinner-border spinner-border-sm" role="status"
+                            aria-hidden="true"></span>
+                        Actualizando</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        LoadUserMainInfo(global_user_logged);
+    </script>
+    </div>
+
+</body>
+
+</html>

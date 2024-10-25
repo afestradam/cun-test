@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+
+<head>
+    <title>Módulo</title>
+    <meta charset="UTF-8">
+    <script src="d-users/js/users.js" type="text/javascript"></script>
+    <script src="d-users/js/users-data.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+    <div class="pages-container container">
+        <div class="title">
+            <h1>Usuarios</h1>
+        </div>
+        <div class="actions">
+            <div class="item">
+                <a id="users-new-module" href="javascript: Load_View('View_Users', 'new');" class="btn btn-sm"><i
+                        class="fas fa-plus"></i> Nuevo</a>
+            </div>
+        </div>
+
+        <div class="table-responsive ss-table-container">
+            <table class="table shadow-sm align-middle ss-table" id="users-table">
+                <thead>
+                    <tr>
+                        <th class="text-left" scope="col">#</th>
+                        <th class="text-left" scope="col">Nombre</th>
+                        <th class="text-left" scope="col">E-Mail</th>
+                        <th class="text-center" scope="col">
+                            -
+                        </th>
+                        <th class="text-center" scope="col">
+                            -
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="users-table-body" class="table-group-divider">
+                </tbody>
+            </table>
+            <nav aria-label="...">
+                <ul class="pagination pagination-sm justify-content-center p-2" id="users-list-pages">
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!---------------------------Edit Modal----------------------------->
+    <div class="modal fade" tabindex="-1" id="users-edit" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar usuario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="container">
+                        <div class="form-floating mb-3 hide-element">
+                            <input type="text" class="form-control textbox-line" id="users-edit-id"
+                                name="users-edit-user" data-campo="Id de usuario" onchange="removeInvalid(this)"
+                                placeholder="Id de usuario">
+                            <label class="form-small-label" for="users-edit-id">Id de usuario</label>
+                            <small id="users-edit-id-text" class="form-text text-muted"></small>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control textbox-line" id="users-edit-name"
+                                name="users-edit-user" data-campo="Nombre" onchange="removeInvalid(this)"
+                                placeholder="Nombre">
+                            <label class="form-small-label" for="users-edit-name">Nombre</label>
+                            <small id="users-edit-name-text" class="form-text text-muted"></small>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control textbox-line" id="users-edit-email"
+                                name="users-edit-user" data-campo="E-Mail" onchange="removeInvalid(this)"
+                                placeholder="E-Mail">
+                            <label class="form-small-label" for="users-edit-email">E-Mail</label>
+                            <small id="users-edit-email-text" class="form-text text-muted"></small>
+                        </div>
+                        <div class="form-floating col-md-12 mb-3 hide-element">
+                            <input type="password" class="form-control textbox-line" id="users-edit-mainpassword" name="users-edit-user"
+                                data-field="confirmar contraseña" onchange="removeInvalid(this)">
+                            <label class="form-small-label" for="users-edit-mainpassword">Confirmar contraseña</label>
+                            <small id="users-edit-mainpassword-text" class="form-text text-muted"></small>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" type="button" class="ss-btn btn-danger btn-sm" data-bs-dismiss="modal">Cerrar</a>
+                    <a href="javascript: validateData('users-edit');" type="button" class="ss-btn btn-basic"
+                        id="users-edit-send">Guardar</a>
+                    <a href="#" type="button" class="ss-btn btn-basic disabled hide-element"
+                        id="users-edit-sending"><span class="spinner-border spinner-border-sm" role="status"
+                            aria-hidden="true"></span>
+                        Guardando</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var users_modal = CreateNewModal("users-edit");
+        Load_Users(1);
+    </script>
+</body>
+
+</html>

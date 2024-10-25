@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the saveor.
+-->
+<html>
+
+<head>
+    <title>Nuevo cliente</title>
+    <meta charset="UTF-8">
+    <script src="d-products/js/products.js" type="text/javascript"></script>
+    <script src="d-products/js/products-data.js" type="text/javascript"></script>
+</head>
+
+<body class=" container-fluid">
+    <div class="pages-container new container">
+        <div class="">
+            <div class="actions">
+                <div class="item">
+                    <a href="javascript: Load_View('View_Products', 'products');" class="btn btn-sm"><i
+                            class="bi bi-arrow-left"></i></a>
+                </div>
+            </div>
+            <div id="product-save-container" class="save-container">
+                <form autocomplete="off">
+
+                    <h3>Nuevo producto</h3>
+                    <hr>
+                    <div class="col-md-12 mb-3">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="product-save-name" name="product-save-product"
+                                data-field="nombre" onchange="removeInvalid(this)" placeholder="Nombre de producto">
+                            <label class="form-small-label" for="product-save-name">Nombre de productoa</label>
+                            <small id="product-save-name-text" class="form-text text-muted"></small>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="form-floating">
+                            <textarea class="form-control" id="product-save-description"
+                                name="product-save-product" data-field="descripción" onchange="removeInvalid(this)"
+                                placeholder="Descripción" style="height: 100px;"></textarea>
+                            <label class="form-small-label" for="product-save-description">Descripción</label>
+                            <small id="product-save-description-text" class="form-text text-muted"></small>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="form-floating">
+                            <input type="text" class="form-control textbox-line currency-mask" id="product-save-price"
+                                name="product-save-product" data-field="precio"
+                                onchange="removeInvalid(this)" placeholder="Precio">
+                            <label class="form-small-label" for="product-save-price">Precio</label>
+                            <small id="product-save-price-text" class="form-text text-muted"></small>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="form-floating">
+                            <input type="number" class="form-control textbox-line" id="product-save-stock"
+                                name="product-save-product" data-field="stock"
+                                onchange="removeInvalid(this)" placeholder="Stock">
+                            <label class="form-small-label" for="product-save-stock">Stock</label>
+                            <small id="product-save-stock-text" class="form-text text-muted"></small>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer d-flex justify-content-center pb-4">
+                <a href="javascript: validateSave();" type="button" class="ss-btn btn-basic"
+                    id="product-save-send">Guardar</a>
+                <a href="#" type="button" class="ss-btn btn-basic disabled hide-element" id="product-save-sending"><span
+                        class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Guardando</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('.currency-mask').mask('000.000.000', {reverse: true});
+    </script>
+</body>
+
+</html>

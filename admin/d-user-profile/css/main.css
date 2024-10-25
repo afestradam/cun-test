@@ -1,0 +1,104 @@
+.profile-container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+}
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    width: 600px;
+    margin: 10px;
+    position: relative;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 1px 2px 1px 2px lightgray;
+    transition: 0.2s;
+}
+
+.profile-card .image {
+    width: 20%;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-card .info {
+    width: 80%;
+    margin: 10px;
+}
+
+.profile-card .info h1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.profile-card .info h2 {
+    font-size: 18px;
+}
+
+.profile-card .info h3 {
+    font-size: 16px;
+}
+
+.profile-card .edit {
+    color: gray;
+    font-size: 20px;
+    position: absolute;
+    right: 40px;
+}
+
+.profile-card .edit a {
+    color: gray;
+    text-decoration: none;
+}
+
+.profile-form {
+    width: 600px;
+    margin: 10px;
+    position: relative;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 1px 2px 1px 2px lightgray;
+}
+
+.profile-form .close {
+    color: gray;
+    font-size: 20px;
+    position: absolute;
+    right: 40px;
+}
+
+.profile-form .close a {
+    color: gray;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.profile-container .cta {
+    display: none !important;
+}
+
+@media only screen and (min-width: 100px) and (max-width: 767px) {
+    .profile-card {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .profile-card .image {
+        width: 100%;
+    }
+
+    .profile-container .cta {
+        display: block !important;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+    }
+
+}

@@ -1,0 +1,45 @@
+
+body {
+    background-image: url("../../media/images/RECURSOS-16.jpg") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-container {
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    width: 30%;
+    height: auto;
+    border:#0a2f5e 1px solid;
+    padding: 4%;
+    box-shadow: 8px 8px 8px #6ff9df;
+    text-align: center;
+
+}
+
+.login-container img{
+
+    height: auto;
+    width: 150px;
+
+}
+
+@media only screen and (max-width: 768px) {
+    
+    .login-container {
+
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5%;
+        width: 90%;
+        height: auto;
+        border:#0a2f5e 1px solid;
+        padding: 15%;
+        box-shadow: 8px 8px 8px #6ff9df;
+        text-align: center;
+    
+    }
+
+}

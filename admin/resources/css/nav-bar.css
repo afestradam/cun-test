@@ -1,0 +1,125 @@
+.navbar {
+  color: #212529;
+  background-color: #fff;
+  height: auto;
+  transition: 0.8s;
+}
+
+.navbar .fas {
+  color: #212529;
+}
+
+.navbar-brand {
+  margin: 0%;
+  height: auto;
+  width: 5%;
+}
+
+.navbar img {
+  height: auto;
+  width: 60px;
+}
+
+#home-navbar-back {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: gray;
+  opacity: 0.5;
+  z-index: 4;
+}
+
+#navbar-panel {
+  background-color: white;
+  width: 25%;
+  min-height: 100vh;
+  position: fixed;
+  z-index: 99999;
+  opacity: 1;
+  right: 100%;
+  /*display: none*/
+}
+
+.panel-option {
+  color: #0c0c0c;
+  transition: 0.2s;
+  font-size: 100%;
+}
+
+.panel-option:hover {
+  color: white;
+  height: auto;
+  transform: scale(1);
+  background-color: #8FDA00;
+}
+
+.ppanel-option {
+  font-family: robotoRegular;
+  color: white;
+  transition: 0.2s;
+  font-size: 90%;
+}
+
+.ppanel-option:hover {
+  color: white;
+  height: auto;
+  transform: scale(1.2);
+  background-color: transparent;
+  /*border: white 1px solid;
+    border-radius: 10%;*/
+  /*opacity: 0.8;*/
+}
+
+.ppanel-optionm {
+  font-family: robotoRegular;
+  color: #8FDA00;
+  font-weight: bolder;
+  transition: 0.2s;
+  font-size: 16px;
+}
+
+.ppanel-optionm:hover {
+  color: #8FDA00;
+  font-weight: bolder;
+  height: auto;
+  transform: scale(1.2);
+  background-color: transparent;
+  /*border: white 1px solid;
+    border-radius: 10%;*/
+  /*opacity: 0.8;*/
+}
+
+.active-option {
+  color: white;
+  background-color: #8FDA00;
+}
+
+.active-option2 {
+  background-color: transparent;
+  border: #6d00ff 1px solid;
+}
+
+#module-name h4 {
+  margin: 0;
+}
+
+.home-badge {
+  margin: 0 0 0 10px;
+  position: absolute;
+  font-size: 10px;
+}
+
+@media only screen and (min-width: 100px) and (max-width: 767px) {
+
+  #navbar-panel {
+    background-color: white;
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    z-index: 99999;
+    opacity: 1;
+    right: 100%;
+    /*display: none*/
+  }
+
+}

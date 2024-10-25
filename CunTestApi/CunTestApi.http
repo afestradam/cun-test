@@ -1,0 +1,102 @@
+@CunTestApi_HostAddress = http://localhost:5028
+
+GET {{CunTestApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+### Autenticación - Obtener JWT Token
+POST {{CunTestApi_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  "userEmail": "tedevuser@mail.com",
+  "userPassword": "user12345"
+}
+
+###
+
+### Obtener lista de usuarios (Proteger con JWT)
+GET {{CunTestApi_HostAddress}}/api/users
+Authorization: Bearer {{jwt_token}}
+
+###
+
+### Obtener un usuario por ID (Proteger con JWT)
+GET {{CunTestApi_HostAddress}}/api/users/1
+Authorization: Bearer {{jwt_token}}
+
+###
+
+### Crear un nuevo usuario (Proteger con JWT)
+POST {{CunTestApi_HostAddress}}/api/users
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+  "userName": "newuser",
+  "email": "newuser@example.com",
+  "password": "password123"
+}
+
+###
+
+### Actualizar un usuario (Proteger con JWT)
+PUT {{CunTestApi_HostAddress}}/api/users/1
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+  "userId": 1,
+  "userName": "updateduser",
+  "email": "updateduser@example.com",
+  "password": "newpassword123"
+}
+
+###
+
+### Eliminar un usuario por ID (Proteger con JWT)
+DELETE {{CunTestApi_HostAddress}}/api/users/1
+Authorization: Bearer {{jwt_token}}
+
+###
+
+### Obtener lista de productos (Proteger con JWT)
+GET {{CunTestApi_HostAddress}}/api/products
+Authorization: Bearer {{jwt_token}}
+
+###
+
+### Obtener un producto por ID (Proteger con JWT)
+GET {{CunTestApi_HostAddress}}/api/products/1
+Authorization: Bearer {{jwt_token}}
+
+###
+
+
+### Obtener stock de un producto por ID (Proteger con JWT)
+GET {{CunTestApi_HostAddress}}/api/products/stock/1
+Authorization: Bearer {{jwt_token}}
+
+###
+
+### Crear un nuevo producto (Proteger con JWT)
+POST {{CunTestApi_HostAddress}}/api/products
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+###
+
+### Actualizar un producto (Proteger con JWT)
+PUT {{CunTestApi_HostAddress}}/api/products/1
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+###
+
+### Eliminar un producto por ID (Proteger con JWT)
+DELETE {{CunTestApi_HostAddress}}/api/products/1
+Authorization: Bearer {{jwt_token}}
+
+###
+

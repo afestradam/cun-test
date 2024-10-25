@@ -1,0 +1,36 @@
+<div id="users-save-user" class="users-save-user p-4">
+    <form autocomplete="off">
+
+        <div class="form-floating col-md-12 mb-3">
+            <input type="text" class="form-control textbox-line" id="users-save-name" name="users-save-user"
+                data-field="nombre" onchange="removeInvalid(this)">
+            <label class="form-small-label" for="users-save-name">Nombre</label>
+            <small id="users-save-name-text" class="form-text text-muted"></small>
+        </div>
+        <div class="form-floating col-md-12 mb-3">
+            <input type="email" class="form-control textbox-line" id="users-save-email" name="users-save-user"
+                data-field="e-mail" onchange="removeInvalid(this)">
+            <label class="form-small-label" for="users-save-email">E-Mail</label>
+            <small id="users-save-email-text" class="form-text text-muted"></small>
+        </div>
+        <div class="form-floating col-md-12 mb-3">
+            <input type="password" class="form-control textbox-line" id="users-save-password" name="users-save-user"
+                data-field="Contraseña" onchange="removeInvalid(this)">
+            <label class="form-small-label" for="users-save-password">Contraseña</label>
+            <small id="users-save-password-text" class="form-text text-muted"></small>
+        </div>
+        <div class="form-floating col-md-12 mb-3">
+            <input type="password" class="form-control textbox-line" id="users-save-mainpassword" name="users-save-user"
+                data-field="confirmar contraseña" onchange="removeInvalid(this)">
+            <label class="form-small-label" for="users-save-mainpassword">Confirmar contraseña</label>
+            <small id="users-save-mainpassword-text" class="form-text text-muted"></small>
+        </div>
+    </form>
+</div>
+<div class="modal-footer p-4 d-flex justify-content-center">
+    <a href="/" type="button" class="ss-btn btn-danger m-2" id="users-save-back">Regresar</a>
+    <a href="javascript: validateData('users-save');" type="button" class="ss-btn btn-basic m-2" id="users-save-send">Guardar</a>
+    <a href="#" type="button" class="ss-btn btn-basic disabled hide-element" id="users-save-sending"><span
+            class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        Guardando</a>
+</div>

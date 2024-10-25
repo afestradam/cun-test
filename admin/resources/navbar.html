@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <nav class="navbar fixed-top shadow-sm">
+        <div class="container">
+            <div class="col">
+                <a class="navbar-brand" href="javascript: menuPanel()">
+                    <span class="badge bg-danger home-badge" id="home-bar-notifications" data-number="0"></span>
+                    <i class="fas fa-bars"></i>
+                </a>
+            </div>
+            <div class="col nav justify-content-center">
+
+            </div>
+            <div class="col text-center hide-element" id="module-name">
+
+            </div>
+            <div id="navbar-user-info" class="col justify-content-end">
+                <div class="user-info">
+                    <div class="profile-image">
+                        <img id="user-image" src="media/images/profile-default.png" alt="Imagen de perfil">
+                    </div>
+                    <div class="text">
+                        <div class="data">
+                            <div class="dropdown">
+                                <h6 id="user-name" class="list" data-bs-toggle="dropdown">
+                                </h6>
+                                <ul class="dropdown-menu p-2">
+                                    <li><a id="mod_1003" data-id="1003" data-function="View_User-Profile"
+                                            data-html="user-profile" data-submodule="0" class="dropdown-item"
+                                            name="panel-desktop-options-items"
+                                            href="javascript: Load_View('View_User-Profile', 'user-profile')"><i
+                                                class="bi bi-person"></i>Mi cuenta</a></li>
+                                    <li><a class="dropdown-item" href="javascript: LogOut()"><i
+                                                class="bi bi-box-arrow-in-right"></i>Cerrar sesión</a></li>
+                                </ul>
+                            </div>
+                            <small id="user-position"></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container shadow p-3 mb-5 bg-white rounded" id="navbar-panel" class="animated" data-status="off">
+        <div class="d-flex justify-content-end">
+            <a href="javascript: menuPanel();" class="btn btn-ss-transparent">
+                <i class="fas fa-times"></i>
+            </a>
+        </div>
+        <div class="navbar-panel-content" id="navbar-panel-content">
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Logo_CUN_EXTERNOS_Logo_Corporacion_unificada_nacional_color.png/900px-Logo_CUN_EXTERNOS_Logo_Corporacion_unificada_nacional_color.png">
+            </div>
+            <hr>
+            <div class="panel-user-info">
+                <div class="panel-user-info-container">
+                    <div class="profile-image">
+                        <a id="mod_1004" data-id="1004" data-function="View_User-Profile" data-html="user-profile"
+                            data-submodule="0" class="dropdown-item" name="panel-desktop-options-items"
+                            href="javascript: Load_View('View_User-Profile', 'user-profile'), menuPanel()">
+                            <img id="user-image-panel" src="media/images/profile-default.png" alt="Imagen de perfil"></a>
+                    </div>
+                    <div class="text">
+                        <h6 id="user-name-panel" class="list" data-bs-toggle="dropdown">
+                        </h6>
+                        <small id="user-position-panel"></small>
+                    </div>
+                    <div class="log-out">
+                        <a href="javascript: LogOut()"><i class="bi bi-box-arrow-in-right"></i></a>
+                    </div>
+                </div>
+                <div class="custom-user-info">
+                    <a name="navbar-user-info" href="javascript: ToggleUserInfo()" class="ss-btn">
+                        Ver solo mi inrmación
+                    </a>
+                </div>
+            </div>
+            <div id="panel-desktop-options" class="panel-desktop-options"
+                style="overflow-y: auto; max-height: calc(100vh - 230px);">
+                <a id="mod_1" data-id="1" data-function="View_Users" data-html="users" data-submodule="0" class="panel-option nav-item nav-link main-module" name="panel-desktop-options-items" href="javascript: Load_View('View_Users', 'users'), menuPanel()"><i class="bi bi-people"></i> USUARIOS</a>
+                <a id="mod_2" data-id="2" data-function="View_Products" data-html="products" data-submodule="0" class="panel-option nav-item nav-link main-module" name="panel-desktop-options-items" href="javascript: Load_View('View_Products', 'products'), menuPanel()"><i class="bi bi-box-seam"></i> PRODUCTOS</a>
+            </div>
+        </div>
+    </div>
+    <!---------------------------Modal Mensaje----------------------------->
+    <div class="modal fade" id="modal_msg" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p class="modal-title" style="font-weight: bold;">Alerta</p>
+                </div>
+                <div class="modal-body text-center" id="msg">
+                </div>
+                <div class="modal-footer d-flex justify-content-center" id="btns">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var myMsgModal = CreateNewModal("modal_msg");
+        user_data();
+        get_module();
+    </script>
+</body>
+
+</html>

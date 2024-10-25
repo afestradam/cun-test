@@ -1,0 +1,178 @@
+.navbar {
+  color: #212529;
+  background-color: #fff;
+  height: 80px;
+  transition: 0.8s;
+}
+
+.navbar .dropdown h4 {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar .user-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar .user-info .profile-image img {
+  margin: 10px;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+}
+
+.navbar .user-info .text h6 {
+  margin: 0;
+}
+
+.navbar .user-info .text .data .list {
+  cursor: pointer;
+}
+
+.navbar .user-info .text .data i {
+  margin: 5px;
+}
+
+.navbar .fas {
+  color: #212529;
+}
+
+.navbar-brand {
+  margin: 0%;
+  height: auto;
+  width: 5%;
+}
+
+#home-navbar-back {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: gray;
+  opacity: 0.5;
+  z-index: 4;
+}
+
+#navbar-panel {
+  background-color: white;
+  width: 25%;
+  min-height: 100vh;
+  position: fixed;
+  z-index: 99999;
+  opacity: 1;
+  right: 100%;
+  /*display: none*/
+}
+
+#navbar-panel .logo {
+  text-align: center;
+  margin: 10px 0 20px 0;
+}
+
+#navbar-panel .logo img {
+  width: 100px;
+  height: auto;
+}
+
+#navbar-panel .panel-option {
+  color: #0c0c0c;
+  text-transform: uppercase;
+  transition: 0.2s;
+  font-size: 100%;
+}
+
+#navbar-panel .panel-option i {
+  margin: 0 20px 0 10px;
+}
+
+#navbar-panel .panel-option:hover {
+  color: white;
+  height: auto;
+  transform: scale(1);
+  background-color: #8FDA00;
+}
+
+#navbar-panel .active-option {
+  color: white;
+  background-color: #8FDA00;
+}
+
+.home-badge {
+  margin: 0 0 0 10px;
+  position: absolute;
+  font-size: 10px;
+}
+
+.panel-user-info {
+  display: none;
+}
+
+@media only screen and (min-width: 100px) and (max-width: 767px) {
+
+  .navbar-brand {
+    margin-left: 15px;
+  }
+
+  #navbar-user-info {
+    display: none;
+  }
+
+  #navbar-panel {
+    background-color: white;
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    z-index: 99999;
+    opacity: 1;
+    right: 100%;
+  }
+
+  .panel-user-info {
+    display: block;
+    width: 100%;
+    padding: 20px 10px;
+    background-color: #f3f4f7;
+    border-radius: 10px;
+  }
+
+  .panel-user-info-container {
+    display: flex;
+    align-items: center;
+    margin: 15px 0px;
+    width: 100%;
+  }
+
+  .panel-user-info-container .profile-image {}
+
+  .panel-user-info-container .profile-image img {
+    margin: 10px;
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+  }
+
+  .panel-user-info-container .text {
+    padding: 10px;
+  }
+
+  .panel-user-info-container .text h6 {
+    margin: 0;
+  }
+
+  .panel-user-info-container .log-out {
+    padding: 10px 30px;
+    font-size: 25px;
+    color: gray;
+  }
+
+  .panel-user-info-container .log-out a {
+    color: gray;
+    text-decoration: none;
+  }
+
+  .panel-user-info .custom-user-info {
+    text-align: center;
+  }
+
+}
