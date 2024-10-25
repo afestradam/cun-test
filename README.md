@@ -51,7 +51,7 @@ El proyecto está organizado de la siguiente manera para mantener una separació
   - **Helpers/**: Archivos de utilidad, como los métodos de hash de contraseñas.
   - **Migrations/**: Archivos relacionados con las migraciones de la base de datos.
   - **Program.cs**: El punto de entrada de la aplicación donde se configuran los servicios, el middleware, y la autenticación JWT.
-
+- **Postman-Collection/**: Contiene el archivo de colección **CunTestApi.postman_collection.json**, que se puede importar en Postman.
 - **SQL/**: Contiene el archivo de la base de datos **cun_test_dev.bacpac**, que se puede importar en SQL Server.
 
 - **docs/**: Carpeta para la documentación del proyecto, incluyendo el archivo **Prueba_ProgramacionFullStack.docx** que contiene la especificación de la prueba.
