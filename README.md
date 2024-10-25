@@ -140,7 +140,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 ### 3. Frontend (HTML5)
    - **Paso 1**: Navegar a la carpeta donde se encuentra el archivo HTML del frontend.
    - **Paso 2**: En la ruta **admin/resources/js** se encuentra el archivo .env.
-     ```json
+     ```javascript
 const env = {
     "base": {
         "dev": "http://localhost:5109/",
